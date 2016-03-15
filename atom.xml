@@ -331,11 +331,28 @@
     <link href="http://yoursite.com/2016/03/15/Mysql-%E6%9C%80%E5%B7%A6%E5%8E%9F%E5%88%99/"/>
     <id>http://yoursite.com/2016/03/15/Mysql-最左原则/</id>
     <published>2016-03-15T03:08:37.000Z</published>
-    <updated>2016-03-15T09:23:51.000Z</updated>
+    <updated>2016-03-15T10:23:29.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h3 id=&quot;能用到索引或者索引部分&quot;&gt;&lt;a href=&quot;#能用到索引或者索引部分&quot; class=&quot;headerlink&quot; title=&quot;能用到索引或者索引部分&quot;&gt;&lt;/a&gt;能用到索引或者索引部分&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;联合索引全字段匹配；如: where a=1 and b=2&lt;/li&gt;
+&lt;li&gt;联合索引左边字段匹配；如: where a=1（索引是a，b）&lt;/li&gt;
+&lt;li&gt;联合索引左边字段范围查询, 范围查询截断了索引的使用，&lt;ul&gt;
+&lt;li&gt;如: where a &amp;lt; 100 and b=1（索引是a，b），只用到索引的a部分，b部分不起作用；&lt;ul&gt;
+&lt;li&gt;如: where a = 100 and b&amp;gt;1（索引是a，b），用到了整个索引&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;索引的模糊查询，可以用到索引的部分；如 where a like ‘abc%’&lt;/li&gt;
+&lt;li&gt;IN 一般情况下是算作精确查询里。&lt;/li&gt;
+&lt;li&gt;联合索引的使用场景还有 where + order by。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;h3 id=&quot;能用到索引或者索引部分&quot;&gt;&lt;a href=&quot;#能用到索引或者索引部分&quot; class=&quot;headerlink&quot; title=&quot;能用到索引或者索引部分&quot;&gt;&lt;/a&gt;能用到索引或者索引部分&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;联合索引全字段匹配；如: where a=1 and b
     
     </summary>
     

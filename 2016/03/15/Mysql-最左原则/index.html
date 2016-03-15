@@ -11,16 +11,31 @@
     
 
     
-    <meta name="description">
+    <meta name="description" content="能用到索引或者索引部分
+联合索引全字段匹配；如: where a=1 and b=2
+联合索引左边字段匹配；如: where a=1（索引是a，b）
+联合索引左边字段范围查询, 范围查询截断了索引的使用，
+如: where a &amp;lt; 100 and b=1（索引是a，b），只用到索引的a部分，b部分不起作用；
+如: where a = 100 and b&amp;gt;1（索引是a，b），用到了整个索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql 索引最左原则">
 <meta property="og:url" content="http://yoursite.com/2016/03/15/Mysql-最左原则/index.html">
 <meta property="og:site_name" content="chly23">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-15T09:23:51.000Z">
+<meta property="og:description" content="能用到索引或者索引部分
+联合索引全字段匹配；如: where a=1 and b=2
+联合索引左边字段匹配；如: where a=1（索引是a，b）
+联合索引左边字段范围查询, 范围查询截断了索引的使用，
+如: where a &amp;lt; 100 and b=1（索引是a，b），只用到索引的a部分，b部分不起作用；
+如: where a = 100 and b&amp;gt;1（索引是a，b），用到了整个索">
+<meta property="og:updated_time" content="2016-03-15T10:23:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql 索引最左原则">
-<meta name="twitter:description">
+<meta name="twitter:description" content="能用到索引或者索引部分
+联合索引全字段匹配；如: where a=1 and b=2
+联合索引左边字段匹配；如: where a=1（索引是a，b）
+联合索引左边字段范围查询, 范围查询截断了索引的使用，
+如: where a &amp;lt; 100 and b=1（索引是a，b），只用到索引的a部分，b部分不起作用；
+如: where a = 100 and b&amp;gt;1（索引是a，b），用到了整个索">
 
     
     <link rel="alternative" href="/atom.xml" title="chly23" type="application/atom+xml">
@@ -96,11 +111,25 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#能用到索引或者索引部分"><span class="toc-number">1.</span> <span class="toc-text">能用到索引或者索引部分</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<h3 id="能用到索引或者索引部分"><a href="#能用到索引或者索引部分" class="headerlink" title="能用到索引或者索引部分"></a>能用到索引或者索引部分</h3><ul>
+<li>联合索引全字段匹配；如: where a=1 and b=2</li>
+<li>联合索引左边字段匹配；如: where a=1（索引是a，b）</li>
+<li>联合索引左边字段范围查询, 范围查询截断了索引的使用，<ul>
+<li>如: where a &lt; 100 and b=1（索引是a，b），只用到索引的a部分，b部分不起作用；<ul>
+<li>如: where a = 100 and b&gt;1（索引是a，b），用到了整个索引</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>索引的模糊查询，可以用到索引的部分；如 where a like ‘abc%’</li>
+<li>IN 一般情况下是算作精确查询里。</li>
+<li>联合索引的使用场景还有 where + order by。</li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -162,7 +191,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#能用到索引或者索引部分"><span class="toc-number">1.</span> <span class="toc-text">能用到索引或者索引部分</span></a></li></ol>
  
   </div>
 

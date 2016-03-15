@@ -4,25 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/03/15/Mysql-%E6%96%87%E7%AB%A0/</loc>
-    <lastmod>2016-03-15T10:07:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>Mysql 文章</title>
-        <pubTime>2016-03-15T10:01:26.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2016/03/15/Mysql-%E6%9C%80%E5%B7%A6%E5%8E%9F%E5%88%99/</loc>
-    <lastmod>2016-03-15T09:23:51.000Z</lastmod>
+    <lastmod>2016-03-15T10:23:29.000Z</lastmod>
     <data>
         <display>
         <title>Mysql 索引最左原则</title>
@@ -35,6 +18,23 @@
              
               <breadCrumb title="mysql" url="http://yoursite.com/categories/mysql/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/03/15/Mysql-%E6%96%87%E7%AB%A0/</loc>
+    <lastmod>2016-03-15T10:07:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mysql 文章</title>
+        <pubTime>2016-03-15T10:01:26.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+         
+           
         </display>
     </data>
     </url>
