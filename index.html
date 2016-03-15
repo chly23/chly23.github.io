@@ -94,8 +94,7 @@
 </header>
     <div class="article-content">
         
-        <pre><code>&lt;code&gt;
-public function convertStringToUtf8($string)
+        <pre><code>public function convertStringToUtf8($string)
 {
     $string = urldecode($string);
     $encoding = mb_detect_encoding($string, array(&apos;ASCII&apos;, &apos;UTF-8&apos;, &apos;GB2312&apos;, &apos;GBK&apos;, &apos;BIG5&apos;));
@@ -103,7 +102,6 @@ public function convertStringToUtf8($string)
     $string = trim(str_replace(&apos;GB2312&apos;, &apos;utf-8&apos;, $string));//换xml类型编码
     return $string;
 }
-&lt;/code&gt;
 </code></pre>
         
         
