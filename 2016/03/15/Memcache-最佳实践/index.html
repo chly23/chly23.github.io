@@ -4,22 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>chly23</title>
+    <title>Memcache 最佳实践 | chly23</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="chly23">
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chly23">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="1、memcached的基本设置 1）启动Memcache的服务器端 
+/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid-d选项是启动一个守护进程，-m是分配给Memcache使用的内存数量，单位是MB，我这里是10MB，-u是运行Memcache的用户，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memcache 最佳实践">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/Memcache-最佳实践/index.html">
 <meta property="og:site_name" content="chly23">
-<meta property="og:description">
+<meta property="og:description" content="1、memcached的基本设置 1）启动Memcache的服务器端 
+/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid-d选项是启动一个守护进程，-m是分配给Memcache使用的内存数量，单位是MB，我这里是10MB，-u是运行Memcache的用户，">
+<meta property="og:updated_time" content="2016-03-15T08:39:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chly23">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Memcache 最佳实践">
+<meta name="twitter:description" content="1、memcached的基本设置 1）启动Memcache的服务器端 
+/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid-d选项是启动一个守护进程，-m是分配给Memcache使用的内存数量，单位是MB，我这里是10MB，-u是运行Memcache的用户，">
 
     
     <link rel="alternative" href="/atom.xml" title="chly23" type="application/atom+xml">
@@ -73,12 +77,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/03/15/Memcache-最佳实践/" title="Memcache 最佳实践" itemprop="url">Memcache 最佳实践</a>
@@ -92,9 +94,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>1、memcached的基本设置<br> 1）启动Memcache的服务器端 </p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid"><span class="toc-number">1.</span> <span class="toc-text">/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kill-cat-tmp-memcached-pid"><span class="toc-number">2.</span> <span class="toc-text">kill cat /tmp/memcached.pid</span></a></li></ol>
+		
+		</div>
+		
+		<p>1、memcached的基本设置<br> 1）启动Memcache的服务器端 </p>
 <h1 id="usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid"><a href="#usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid" class="headerlink" title="/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid"></a>/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid</h1><p>-d选项是启动一个守护进程，<br>-m是分配给Memcache使用的内存数量，单位是MB，我这里是10MB，<br>-u是运行Memcache的用户，我这里是root，<br>-l是监听的服务器IP地址，如果有多个地址的话，我这里指定了服务器的IP地址192.168.0.200，<br>-p是设置Memcache监听的端口，我这里设置了12000，最好是1024以上的端口，<br>-c选项是最大运行的并发连接数，默认是1024，我这里设置了256，按照你服务器的负载量来设定，<br>-P是设置保存Memcache的pid文件，我这里是保存在 /tmp/memcached.pid，</p>
 <p> 2）如果要结束Memcache进程，执行：</p>
 <h1 id="kill-cat-tmp-memcached-pid"><a href="#kill-cat-tmp-memcached-pid" class="headerlink" title="kill cat /tmp/memcached.pid"></a>kill <code>cat /tmp/memcached.pid</code></h1><p>哈希算法将任意长度的二进制值映射为固定长度的较小二进制值，这个小的二进制值称为哈希值。哈希值是一段数据唯一且极其紧凑的数值表示形式。如果散列一段明文而且哪怕只更改该</p>
@@ -303,14 +312,9 @@
 <p>如果你有一个很高访问率的站点，并且你正想加入故障恢复功能或是其他全新的功能，你最终可能会碰到空缓存的问题。一开始缓存是空的，然后一大群人点击你的站点，在填充缓存的过</p>
 <p>程中，你的数据库可能会承受不住压力。为了解决这一问题，你可以试试任何可行的方法来 “ 温暖 “ 你的Memcached。方法：可以写一些脚本来缓存通用的页面；也可以写一个命令行工</p>
 <p>具来填充缓存。你可以在高峰时刻在缓存里填充一些内容。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -323,268 +327,43 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/03/15/Memcache-最佳实践/" data-title="Memcache 最佳实践 | chly23" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/15/PHP-convert-string-to-utf8/" title="PHP convert string to utf8" itemprop="url">PHP convert string to utf8</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="chly23" target="_blank" itemprop="author">chly23</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-15T08:08:45.000Z" itemprop="datePublished"> 发表于 2016-03-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <pre><code>public function convertStringToUtf8($string)
-{
-    $string = urldecode($string);
-    $encoding = mb_detect_encoding($string, array(&apos;ASCII&apos;, &apos;UTF-8&apos;, &apos;GB2312&apos;, &apos;GBK&apos;, &apos;BIG5&apos;));
-    $string = mb_convert_encoding($string, &apos;UTF-8&apos;, $encoding);
-    $string = trim(str_replace(&apos;GB2312&apos;, &apos;utf-8&apos;, $string));//换xml类型编码
-    return $string;
-}
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/php/">php</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/php/">php</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/03/15/PHP-convert-string-to-utf8/"  title="PHP convert string to utf8">
+ <strong>下一篇：</strong><br/> 
+ <span>PHP convert string to utf8
+</span>
+</a>
 </div>
 
-</footer>
+</nav>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/15/hello-world/" title="初学Hexo" itemprop="url">初学Hexo</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="chly23" target="_blank" itemprop="author">chly23</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-15T07:07:07.000Z" itemprop="datePublished"> 发表于 2016-03-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
 	
-</div>
 
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/15/Mysql-最左原则/" title="Mysql 索引最左原则" itemprop="url">Mysql 索引最左原则</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="chly23" target="_blank" itemprop="author">chly23</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-15T03:08:37.000Z" itemprop="datePublished"> 发表于 2016-03-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/mysql/">mysql</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/mysql/">mysql</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/03/14/test-md/" title="test.md" itemprop="url">test.md</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="chly23" target="_blank" itemprop="author">chly23</a>
-		
-  <p class="article-time">
-    <time datetime="2016-03-14T10:36:28.000Z" itemprop="datePublished"> 发表于 2016-03-14</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>测试一下</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/mysql/">mysql</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/mysql/">mysql</a><a href="/tags/测试/">测试</a><a href="/tags/haha/">haha</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid"><span class="toc-number">1.</span> <span class="toc-text">/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kill-cat-tmp-memcached-pid"><span class="toc-number">2.</span> <span class="toc-text">kill cat /tmp/memcached.pid</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -757,12 +536,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -833,4 +689,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
