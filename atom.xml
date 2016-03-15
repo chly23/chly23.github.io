@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-15T07:07:07.000Z</updated>
+  <updated>2016-03-15T08:11:37.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP convert string to utf8</title>
+    <link href="http://yoursite.com/2016/03/15/PHP-convert-string-to-utf8/"/>
+    <id>http://yoursite.com/2016/03/15/PHP-convert-string-to-utf8/</id>
+    <published>2016-03-15T08:08:45.000Z</published>
+    <updated>2016-03-15T08:11:37.000Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;
+public function convertStringToUtf8($string)
+{
+    $string = urldecode($string);
+    $encoding = mb_detect_encoding($string, array(&amp;apos;ASCII&amp;apos;, &amp;apos;UTF-8&amp;apos;, &amp;apos;GB2312&amp;apos;, &amp;apos;GBK&amp;apos;, &amp;apos;BIG5&amp;apos;));
+    $string = mb_convert_encoding($string, &amp;apos;UTF-8&amp;apos;, $encoding);
+    $string = trim(str_replace(&amp;apos;GB2312&amp;apos;, &amp;apos;utf-8&amp;apos;, $string));//换xml类型编码
+    return $string;
+}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;
+public function convertStringToUtf8($string)
+{
+    $string = urldecode($string);
+    $encoding = mb_detect_encoding(
+    
+    </summary>
+    
+      <category term="php" scheme="http://yoursite.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+    
+  </entry>
   
   <entry>
     <title>初学Hexo</title>
@@ -47,7 +83,7 @@
     <link href="http://yoursite.com/2016/03/15/Mysql-%E6%9C%80%E5%B7%A6%E5%8E%9F%E5%88%99/"/>
     <id>http://yoursite.com/2016/03/15/Mysql-最左原则/</id>
     <published>2016-03-15T03:08:37.000Z</published>
-    <updated>2016-03-15T07:17:01.000Z</updated>
+    <updated>2016-03-15T07:28:59.000Z</updated>
     
     <content type="html"></content>
     
