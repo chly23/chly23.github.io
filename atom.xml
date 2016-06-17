@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-03-16T09:06:36.000Z</updated>
+  <updated>2016-03-28T02:17:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>初学Hexo</title>
+    <link href="http://yoursite.com/2016/03/28/hello-world/"/>
+    <id>http://yoursite.com/2016/03/28/hello-world/</id>
+    <published>2016-03-28T02:17:42.000Z</published>
+    <updated>2016-03-28T02:17:42.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac home 文件夹（目录）</title>
+    <link href="http://yoursite.com/2016/03/28/Mac-home-%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%88%E7%9B%AE%E5%BD%95%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/03/28/Mac-home-文件夹（目录）/</id>
+    <published>2016-03-28T02:17:05.000Z</published>
+    <updated>2016-03-28T02:17:42.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>线程、进程</title>
     <link href="http://yoursite.com/2016/03/16/%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B/"/>
     <id>http://yoursite.com/2016/03/16/线程、进程/</id>
     <published>2016-03-16T09:05:32.000Z</published>
-    <updated>2016-03-16T09:06:36.000Z</updated>
+    <updated>2016-03-28T02:17:42.000Z</updated>
     
     <content type="html">&lt;p&gt;进程是资源分配的最小单位，线程是CPU调度的最小单位&lt;br&gt;article: &lt;a href=&quot;http://www.cnblogs.com/buptLizer/archive/2012/11/09/2763321.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/buptLizer/archive/2012/11/09/2763321.html&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -39,7 +82,7 @@
     <link href="http://yoursite.com/2016/03/15/Mysql-%E6%96%87%E7%AB%A0/"/>
     <id>http://yoursite.com/2016/03/15/Mysql-文章/</id>
     <published>2016-03-15T10:01:26.000Z</published>
-    <updated>2016-03-15T10:07:59.000Z</updated>
+    <updated>2016-03-28T02:17:42.000Z</updated>
     
     <content type="html">&lt;p&gt;Mysql 索引原理: &lt;a href=&quot;http://www.admin10000.com/document/5372.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.admin10000.com/document/5372.html&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -60,7 +103,7 @@
     <link href="http://yoursite.com/2016/03/15/Memcache-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
     <id>http://yoursite.com/2016/03/15/Memcache-最佳实践/</id>
     <published>2016-03-15T08:37:11.000Z</published>
-    <updated>2016-03-15T08:39:16.000Z</updated>
+    <updated>2016-03-28T02:17:42.000Z</updated>
     
     <content type="html">&lt;p&gt;1、memcached的基本设置&lt;br&gt; 1）启动Memcache的服务器端 &lt;/p&gt;
 &lt;h1 id=&quot;usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid&quot;&gt;&lt;a href=&quot;#usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid&quot; class=&quot;headerlink&quot; title=&quot;/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid&quot;&gt;&lt;/a&gt;/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid&lt;/h1&gt;&lt;p&gt;-d选项是启动一个守护进程，&lt;br&gt;-m是分配给Memcache使用的内存数量，单位是MB，我这里是10MB，&lt;br&gt;-u是运行Memcache的用户，我这里是root，&lt;br&gt;-l是监听的服务器IP地址，如果有多个地址的话，我这里指定了服务器的IP地址192.168.0.200，&lt;br&gt;-p是设置Memcache监听的端口，我这里设置了12000，最好是1024以上的端口，&lt;br&gt;-c选项是最大运行的并发连接数，默认是1024，我这里设置了256，按照你服务器的负载量来设定，&lt;br&gt;-P是设置保存Memcache的pid文件，我这里是保存在 /tmp/memcached.pid，&lt;/p&gt;
@@ -290,7 +333,7 @@
     <link href="http://yoursite.com/2016/03/15/PHP-convert-string-to-utf8/"/>
     <id>http://yoursite.com/2016/03/15/PHP-convert-string-to-utf8/</id>
     <published>2016-03-15T08:08:45.000Z</published>
-    <updated>2016-03-15T08:12:34.000Z</updated>
+    <updated>2016-03-28T02:17:42.000Z</updated>
     
     <content type="html">&lt;pre&gt;&lt;code&gt;public function convertStringToUtf8($string)
 {
@@ -319,38 +362,11 @@
   </entry>
   
   <entry>
-    <title>初学Hexo</title>
-    <link href="http://yoursite.com/2016/03/15/hello-world/"/>
-    <id>http://yoursite.com/2016/03/15/hello-world/</id>
-    <published>2016-03-15T07:07:07.000Z</published>
-    <updated>2016-03-15T07:07:07.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Mysql 索引最左原则</title>
     <link href="http://yoursite.com/2016/03/15/Mysql-%E6%9C%80%E5%B7%A6%E5%8E%9F%E5%88%99/"/>
     <id>http://yoursite.com/2016/03/15/Mysql-最左原则/</id>
     <published>2016-03-15T03:08:37.000Z</published>
-    <updated>2016-03-15T10:23:29.000Z</updated>
+    <updated>2016-03-28T02:17:42.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;能用到索引或者索引部分&quot;&gt;&lt;a href=&quot;#能用到索引或者索引部分&quot; class=&quot;headerlink&quot; title=&quot;能用到索引或者索引部分&quot;&gt;&lt;/a&gt;能用到索引或者索引部分&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;联合索引全字段匹配；如: where a=1 and b=2&lt;/li&gt;
@@ -387,14 +403,20 @@
     <link href="http://yoursite.com/2016/03/14/test-md/"/>
     <id>http://yoursite.com/2016/03/14/test-md/</id>
     <published>2016-03-14T10:36:28.000Z</published>
-    <updated>2016-03-15T04:11:40.000Z</updated>
+    <updated>2016-06-17T04:12:24.000Z</updated>
     
     <content type="html">&lt;p&gt;测试一下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测试第二下&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
     
       &lt;p&gt;测试一下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测试第二下&lt;/li&gt;
+&lt;/ul&gt;
 
     
     </summary>
