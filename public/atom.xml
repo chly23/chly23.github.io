@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>chly23</title>
+  <subtitle>blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-03-15T10:07:59.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>chly23</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql 文章</title>
+    <link href="http://yoursite.com/2016/03/15/Mysql-%E6%96%87%E7%AB%A0/"/>
+    <id>http://yoursite.com/2016/03/15/Mysql-文章/</id>
+    <published>2016-03-15T10:01:26.000Z</published>
+    <updated>2016-03-15T10:07:59.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Mysql 索引原理: &lt;a href=&quot;http://www.admin10000.com/document/5372.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.admin10000.com/document/5372.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mysql 索引原理: &lt;a href=&quot;http://www.admin10000.com/document/5372.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.admin10000.com/document/5372
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Memcache 最佳实践</title>
+    <link href="http://yoursite.com/2016/03/15/Memcache-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://yoursite.com/2016/03/15/Memcache-最佳实践/</id>
+    <published>2016-03-15T08:37:11.000Z</published>
+    <updated>2016-03-15T08:39:16.000Z</updated>
+    
+    <content type="html">&lt;p&gt;1、memcached的基本设置&lt;br&gt; 1）启动Memcache的服务器端 &lt;/p&gt;
+&lt;h1 id=&quot;usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid&quot;&gt;&lt;a href=&quot;#usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-pid&quot; class=&quot;headerlink&quot; title=&quot;/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid&quot;&gt;&lt;/a&gt;/usr/local/bin/memcached -d -m 10 -u root -l 192.168.0.200 -p 12000 -c 256 -P /tmp/memcached.pid&lt;/h1&gt;&lt;p&gt;-d选项是启动一个守护进程，&lt;br&gt;-m是分配给Memcache使用的内存数量，单位是MB，我这里是10MB，&lt;br&gt;-u是运行Memcache的用户，我这里是root，&lt;br&gt;-l是监听的服务器IP地址，如果有多个地址的话，我这里指定了服务器的IP地址192.168.0.200，&lt;br&gt;-p是设置Memcache监听的端口，我这里设置了12000，最好是1024以上的端口，&lt;br&gt;-c选项是最大运行的并发连接数，默认是1024，我这里设置了256，按照你服务器的负载量来设定，&lt;br&gt;-P是设置保存Memcache的pid文件，我这里是保存在 /tmp/memcached.pid，&lt;/p&gt;
+&lt;p&gt; 2）如果要结束Memcache进程，执行：&lt;/p&gt;
+&lt;h1 id=&quot;kill-cat-tmp-memcached-pid&quot;&gt;&lt;a href=&quot;#kill-cat-tmp-memcached-pid&quot; class=&quot;headerlink&quot; title=&quot;kill cat /tmp/memcached.pid&quot;&gt;&lt;/a&gt;kill &lt;code&gt;cat /tmp/memcached.pid&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;哈希算法将任意长度的二进制值映射为固定长度的较小二进制值，这个小的二进制值称为哈希值。哈希值是一段数据唯一且极其紧凑的数值表示形式。如果散列一段明文而且哪怕只更改该&lt;/p&gt;
+&lt;p&gt;段落的一个字母，随后的哈希都将产生不同的值。要找到散列为同一个值的两个不同的输入，在计算上是不可能的。&lt;/p&gt;
+&lt;p&gt;2、一致性Hash算法的目的有两点：一是节点变动后其他节点受影响尽可能小；二是节点变动后数据重新分配尽可能均衡 。&lt;/p&gt;
+&lt;p&gt;3、为什么要运行 memcached ？&lt;/p&gt;
+&lt;p&gt;如果网站的高流量很大并且大多数的访问会造成数据库高负荷的状况下，使用 memcached 能够减轻数据库的压力。&lt;/p&gt;
+&lt;p&gt;4、适用memcached的业务场景？&lt;/p&gt;
+&lt;p&gt;1）如果网站包含了访问量很大的动态网页，因而数据库的负载将会很高。由于大部分数据库请求都是读操作，那么memcached可以显著地减小数据库负载。&lt;/p&gt;
+&lt;p&gt;2）如果数据库服务器的负载比较低但CPU使用率很高，这时可以缓存计算好的结果（ computed objects ）和渲染后的网页模板（enderred templates）。&lt;/p&gt;
+&lt;p&gt;3）利用memcached可以缓存session数据、临时数据以减少对他们的数据库写操作。&lt;/p&gt;
+&lt;p&gt;4）缓存一些很小但是被频繁访问的文件。&lt;/p&gt;
+&lt;p&gt;5）缓存Web ‘services’（非IBM宣扬的Web Services，译者注）或RSS feeds的结果.。&lt;/p&gt;
+&lt;p&gt;5、不适用memcached的业务场景？&lt;/p&gt;
+&lt;p&gt;1）缓存对象的大小大于1MB&lt;/p&gt;
+&lt;p&gt;Memcached本身就不是为了处理庞大的多媒体（large media）和巨大的二进制块（streaming huge blobs）而设计的。&lt;/p&gt;
+&lt;p&gt;2）key的长度大于250字符&lt;/p&gt;
+&lt;p&gt;3）虚拟主机不让运行memcached服务&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;如果应用本身托管在低端的虚拟私有服务器上，像vmware, xen这类虚拟化技术并不适合运行memcached。Memcached需要接管和控制大块的内存，如果memcached管理的内存
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;被OS或 hypervisor交换出去，memcached的性能将大打折扣。&lt;/p&gt;
+&lt;p&gt;4）应用运行在不安全的环境中&lt;/p&gt;
+&lt;p&gt;Memcached为提供任何安全策略，仅仅通过telnet就可以访问到memcached。如果应用运行在共享的系统上，需要着重考虑安全问题。&lt;/p&gt;
+&lt;p&gt;5）业务本身需要的是持久化数据或者说需要的应该是database&lt;/p&gt;
+&lt;p&gt;6、能够遍历memcached中所有的item吗？&lt;/p&gt;
+&lt;p&gt;不能，这个操作的速度相对缓慢且阻塞其他的操作（这里的缓慢时相比memcached其他的命令）。memcached所有非调试（non-debug）命令，例如add, set, get, fulsh等无论&lt;/p&gt;
+&lt;p&gt;memcached中存储了多少数据，它们的执行都只消耗常量时间。任何遍历所有item的命令执行所消耗的时间，将随着memcached中数据量的增加而增加。当其他命令因为等待（遍历所&lt;/p&gt;
+&lt;p&gt;有item的命令执行完毕）而不能得到执行，因而阻塞将发生。&lt;/p&gt;
+&lt;p&gt;集群的相关问题&lt;/p&gt;
+&lt;p&gt;7、memcached是怎么工作的？&lt;/p&gt;
+&lt;p&gt;Memcached的高性能源于两阶段哈希（two-stage hash）结构。Memcached就像一个巨大的、存储了很多&lt;key,value&gt;对的哈希表。通过key，可以存储或查询任意的数据。 客户端&lt;/key,value&gt;&lt;/p&gt;
+&lt;p&gt;可以把数据存储在多台memcached上。当查询数据时，客户端首先参考节点列表计算出key的哈希值（阶段一哈希），进而选中一个节点；客户端将请求发送给选中的节点，然后&lt;/p&gt;
+&lt;p&gt;memcached节点通过一个内部的哈希算法（阶段二哈希），查找真正的数据（item）并返回给客户端。从实现的角度看，memcached是一个非阻塞的、基于事件的服务器程序。&lt;/p&gt;
+&lt;p&gt;8、memcached最大的优势是什么？&lt;/p&gt;
+&lt;p&gt;Memcached最大的好处就是它带来了极佳的水平可扩展性，特别是在一个巨大的系统中。由于客户端自己做了一次哈希，那么我们很容易增加大量memcached到集群中。memcached&lt;/p&gt;
+&lt;p&gt;之间没有相互通信，因此不会增加 memcached的负载；没有多播协议，不会网络通信量爆炸（implode）。&lt;/p&gt;
+&lt;p&gt;9、memcached和MySQL的query cache相比，有什么优缺点？&lt;/p&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;p&gt;1）相比MySQL的query cache，把memcached引入应用中需要不少的工作量。MySQL的query cache，可以自动地缓存SQL查询的结果，被缓存的SQL查询可以被反复、快速的执行。&lt;/p&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;p&gt;1）当修改表时，MySQL的query cache会立刻被刷新（flush）。当写操作很频繁时，MySQL的query cache会经常让所有缓存数据都失效。&lt;/p&gt;
+&lt;p&gt;2）在多核CPU上，MySQL的query cache会遇到扩展问题（scalability issues）。在多核CPU上，query cache会增加一个全局锁（global lock）, 由于需要刷新更多的缓存数据，速度&lt;/p&gt;
+&lt;p&gt;会变得更慢。&lt;/p&gt;
+&lt;p&gt;3）在MySQL的query cache中，是不能存储任意的数据的（只能是SQL查询结果）。利用memcached，我们可以搭建出各种高效的缓存。比如，可以执行多个独立的查询，构建出一个&lt;/p&gt;
+&lt;p&gt;用户对象（user object），然后将用户对象缓存到memcached中。而query cache是SQL语句级别的，不可能做到这一点。在小的网站中，query cache会有所帮助，但随着网站规模的&lt;/p&gt;
+&lt;p&gt;增加，query cache的弊将大于利。&lt;/p&gt;
+&lt;p&gt;4）query cache能够利用的内存容量受到MySQL服务器空闲内存空间的限制。给数据库服务器增加更多的内存来缓存数据，固然是很好的。但是，有了memcached，只要您有空闲的内&lt;/p&gt;
+&lt;p&gt;存，都可以用来增加memcached集群的规模，然后您就可以缓存更多的数据。&lt;/p&gt;
+&lt;p&gt;10、memcached和服务器的local cache（比如PHP的APC、mmap文件等）相比，有什么优缺点？&lt;/p&gt;
+&lt;p&gt;1）首先，local cache面临着严重的内存限制，能够利用的内存容量受到（单台）服务器空闲内存空间的限制。&lt;/p&gt;
+&lt;p&gt;2）local cache有一点比memcached和query cache都要好，那就是它不但可以存储任意的数据，而且没有网络存取的延迟。因此，local cache的数据查询更快。考虑把highly&lt;/p&gt;
+&lt;p&gt;common的数据放在local cache中吧。如果每个页面都需要加载一些数量较少的数据，可以考虑把它们放在local cached。&lt;/p&gt;
+&lt;p&gt;3）local cache缺少集体失效（group invalidation）的特性。在memcached集群中，删除或更新一个key会让所有的观察者觉察到。但是在local cache中, 我们只能通知所有的服务器&lt;/p&gt;
+&lt;p&gt;刷新cache（很慢，不具扩展性）或者仅仅依赖缓存超时失效机制。&lt;/p&gt;
+&lt;p&gt;11、memcached的cache机制是怎样的？&lt;/p&gt;
+&lt;p&gt;Memcached主要的cache机制是LRU（最近最少用）算法+超时失效。当您存数据到memcached中，可以指定该数据在缓存中可以呆多久Which is forever, or some time in the&lt;/p&gt;
+&lt;p&gt;future。如果memcached的内存不够用了，过期的slabs会优先被替换，接着就轮到最老的未被使用的slabs。&lt;/p&gt;
+&lt;p&gt;12、memcached如何实现冗余机制？&lt;/p&gt;
+&lt;p&gt;不实现！Memcached应该是应用的缓存层，从设计本身来京就不带有任何冗余机制。如果一个memcached节点失去了所有数据，应该可以从数据源（比如数据库）再次获取到数据。应&lt;/p&gt;
+&lt;p&gt;用系统应该可以容忍节点的失效。如果担心节点失效会大大加重数据库的负担，那么可以采取一些办法。比如您可以增加更多的节点（来减少丢失一个节点的影响），热备节点（在其他节&lt;/p&gt;
+&lt;p&gt;点down了的时候接管IP）等等。&lt;/p&gt;
+&lt;p&gt;13、memcached如何处理容错的？&lt;/p&gt;
+&lt;p&gt;在节点失效的情况下，集群没有必要做任何容错处理。如果发生了节点失效，应对的措施完全取决于用户。&lt;/p&gt;
+&lt;p&gt;节点失效时，下面列出几种方案供您选择：&lt;/p&gt;
+&lt;p&gt;1）忽略它！ 在失效节点被恢复或替换之前，还有很多其他节点可以应对节点失效带来的影响。&lt;/p&gt;
+&lt;p&gt;2）把失效的节点从节点列表中移除。做这个操作千万要小心！在默认情况下（余数式哈希算法），客户端添加或移除节点，会导致所有的缓存数据不可用！因为哈希参照的节点列表变化&lt;/p&gt;
+&lt;p&gt;了，大部分key会因为哈希值的改变而被映射到（与原来）不同的节点上。&lt;/p&gt;
+&lt;p&gt;3）启动热备节点，接管失效节点所占用的IP。这样可以防止哈希紊乱（hashing chaos）。&lt;/p&gt;
+&lt;p&gt;4）如果希望添加和移除节点，而不影响原先的哈希结果，可以使用一致性哈希算法（consistent hashing）。&lt;/p&gt;
+&lt;p&gt;5）两次哈希（reshing）。当客户端存取数据时，如果发现一个节点down了，就再做一次哈希（哈希算法与前一次不同），重新选择另一个节点（需要注意的时，客户端并没有把down&lt;/p&gt;
+&lt;p&gt;的节点从节点列表中移除，下次还是有可能先哈希到它）。如果某个节点时好时坏，两次哈希的方法就有风险了，好的节点和坏的节点上都可能存在脏数据（stale data）。&lt;/p&gt;
+&lt;p&gt;14、如何将memcached中item批量导入导出？&lt;/p&gt;
+&lt;p&gt;不应该这样做！Memcached是一个非阻塞的服务器。任何可能导致memcached暂停或瞬时拒绝服务的操作都应该值得深思熟虑。向memcached中批量导入数据往往不是您真正想要&lt;/p&gt;
+&lt;p&gt;的！想象看，如果缓存数据在导出导入之间发生了变化，您就需要处理脏数据了；如果缓存数据在导出导入之间过期了，您又怎么处理这些数据呢？&lt;/p&gt;
+&lt;p&gt;因此，批量导出导入数据并不像想象中的那么有用。不过在一个场景倒是很有用。如果您有大量的从不变化 的数据，并且希望缓存很快热（warm）起来，批量导入缓存数据是很有帮助&lt;/p&gt;
+&lt;p&gt;的。&lt;/p&gt;
+&lt;p&gt;15、但是我确实需要把memcached中的item批量导出导入，怎么办？？&lt;/p&gt;
+&lt;p&gt;如果需要批量导出和导入，最可能的原因一般是重新生成缓存数据需要消耗很长的时间或者数据库坏了让您饱受痛苦。&lt;/p&gt;
+&lt;p&gt;如果一个memcached节点down了让您很痛苦，那么必须对数据库做一些优化工作。比如处理”惊群”问题（ memcached节点都失效了，反复的查询让数据库不堪重负）或者存在优化不&lt;/p&gt;
+&lt;p&gt;好的查询等。Memcached 并不是逃避优化查询的借口和方案。&lt;/p&gt;
+&lt;p&gt;这里给出一些提示：&lt;/p&gt;
+&lt;p&gt;使用MogileFS（或者CouchDB等类似的软件）在存储item，把item计算出来并dump到磁盘上。MogileFS可以很方便地覆写item，并提供快速地访问。甚至可以把MogileFS中的item&lt;/p&gt;
+&lt;p&gt;缓存在memcached中，这样可以加快读取速度。 MogileFS+Memcached的组合可以加快缓存不命中时的响应速度，提高网站的可用性。&lt;/p&gt;
+&lt;p&gt;重新使用MySQL。MySQL的 InnoDB主键查询速度非常快。如果大部分缓存数据都可以放到VARCHAR字段中，那么主键查询的性能将更好。从memcached中按key查询几乎等价于&lt;/p&gt;
+&lt;p&gt;MySQL的主键查询：将key 哈希到64-bit的整数，然后将数据存储到MySQL中。您可以把原始（不做哈希）的key存储都普通的字段中，然后建立二级索引来加快查询…key被动地失效，&lt;/p&gt;
+&lt;p&gt;批量删除失效的key，等等。&lt;/p&gt;
+&lt;p&gt;16、memcached是如何做身份验证的？&lt;/p&gt;
+&lt;p&gt;没有身份认证机制！memcached是运行在应用下层的软件（身份验证应该是应用上层的职责）。memcached的客户端和服务器端之所以是轻量级的，部分原因就是完全没有实现身份验&lt;/p&gt;
+&lt;p&gt;证机制。这样，memcached可以很快地创建新连接，服务器端也无需任何配置。如果您希望限制访问，您可以使用防火墙，或者让memcached监听unix domain socket。&lt;/p&gt;
+&lt;p&gt;17、memcached的多线程是什么？如何使用它们？&lt;/p&gt;
+&lt;p&gt;线程就是定律（threads rule）！在Steven Grimm和Facebook的努力下，memcached 1.2及更高版本拥有了多线程模式。多线程模式允许memcached能够充分利用多个CPU，并在&lt;/p&gt;
+&lt;p&gt;CPU之间共享所有的缓存数据。memcached使用一种简单的锁机制来保证数据更新操作的互斥。相比在同一个物理机器上运行多个memcached实例，这种方式能够更有效地处理multi&lt;/p&gt;
+&lt;p&gt;gets。如果系统的负载并不重，那么不需要启用多线程工作模式。如果您在运行一个拥有大规模硬件的、庞大的网站，将体验到看到多线程的好处。更多信息请参见：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://code.sixapart.com/svn/memcached/trunk/server/doc/threads.txt&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://code.sixapart.com/svn/memcached/trunk/server/doc/threads.txt&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;简单地总结一下：命令解析（memcached在这里花了大部分时间）可以运行在多线程模式下。memcached内部对数据的操作是基于很多全局锁的（因此这部分工作不是多线程的）。未&lt;/p&gt;
+&lt;p&gt;来对多线程模式的改进，将移除大量的全局锁，提高memcached在负载极高的场景下的性能。&lt;/p&gt;
+&lt;p&gt;18、memcached能接受的key的最大长度是多少？&lt;/p&gt;
+&lt;p&gt;memcached能接受的key的最大长度是250个字符。需要注意的是，250是memcached服务器端内部的限制。如果使用的Memcached客户端支持”key的前缀”或类似特性，那么key&lt;/p&gt;
+&lt;p&gt;（前缀+原始key）的最大长度是可以超过250个字符的。推荐使用较短的key，这样可以节省内存和带宽。&lt;/p&gt;
+&lt;p&gt;19、memcached对item的过期时间有什么限制？&lt;/p&gt;
+&lt;p&gt;item对象的过期时间最长可以达到30天。memcached把传入的过期时间（时间段）解释成时间点后，一旦到了这个时间点，memcached就把item置为失效状态，这是一个简单但&lt;/p&gt;
+&lt;p&gt;obscure的机制。&lt;/p&gt;
+&lt;p&gt;20、memcached最大能存储多大的单个item？&lt;/p&gt;
+&lt;p&gt;memcached最大能存储1MB的单个item。如果需要被缓存的数据大于1MB，可以考虑在客户端压缩或拆分到多个key中。&lt;/p&gt;
+&lt;p&gt;21、为什么单个item的大小被限制在1M byte之内？&lt;/p&gt;
+&lt;p&gt;简单的回答：因为内存分配器的算法就是这样的。&lt;/p&gt;
+&lt;p&gt;详细的回答：&lt;/p&gt;
+&lt;p&gt;1）Memcached的内存存储引擎，使用slabs来管理内存。内存被分成大小不等的slabs chunks（先分成大小相等的slabs，然后每个slab被分成大小相等chunks，不同slab的chunk大小&lt;/p&gt;
+&lt;p&gt;是不相等的）。chunk的大小依次从一个最小数开始，按某个因子增长，直到达到最大的可能值。如果最小值为400B，最大值是1MB，因子是1.20，各个slab的chunk的大小依次是：&lt;/p&gt;
+&lt;p&gt;slab1 - 400B；slab2 - 480B；slab3 - 576B …slab中chunk越大，它和前面的slab之间的间隙就越大。因此，最大值越大，内存利用率越低。Memcached必须为每个slab预先分配内&lt;/p&gt;
+&lt;p&gt;存，因此如果设置了较小的因子和较大的最大值，会需要为Memcached提供更多的内存。&lt;/p&gt;
+&lt;p&gt;2）不要尝试向memcached中存取很大的数据，例如把巨大的网页放到mencached中。因为将大数据load和unpack到内存中需要花费很长的时间，从而导致系统的性能反而不好。如果&lt;/p&gt;
+&lt;p&gt;确实需要存储大于1MB的数据，可以修改slabs.c：POWER_BLOCK的值，然后重新编译memcached；或者使用低效的malloc/free。另外，可以使用数据库、MogileFS等方案代替&lt;/p&gt;
+&lt;p&gt;Memcached系统。&lt;/p&gt;
+&lt;p&gt;22、可以在不同的memcached节点上使用大小不等的缓存空间吗？如果这么做之后，memcached能够更有效地使用内存吗？&lt;/p&gt;
+&lt;p&gt;Memcache客户端仅根据哈希算法来决定将某个key存储在哪个节点上，而不考虑节点的内存大小。因此，可以在不同的节点上使用大小不等的内存作为缓存空间。但是一般可以这样做&lt;/p&gt;
+&lt;p&gt;：拥有较多内存的节点上可以运行多个memcached实例，每个实例使用的内存跟其他节点上的实例相同。&lt;/p&gt;
+&lt;p&gt;23、什么是二进制协议，是否需要关注？&lt;/p&gt;
+&lt;p&gt;二进制协议尝试为端提供一个更有效的、可靠的协议，减少客户端/服务器端因处理协议而产生的CPU时间。根据Facebook的测试，解析ASCII协议是memcached中消耗CPU时间最多的&lt;/p&gt;
+&lt;p&gt;环节。&lt;/p&gt;
+&lt;p&gt;24、memcached的内存分配器是如何工作的？为什么不适用malloc/free！？为何要使用slabs？&lt;/p&gt;
+&lt;p&gt;实际上，这是一个编译时选项。默认会使用内部的slab分配器，而且确实应该使用内建的slab分配器。最早的时候，memcached只使用malloc/free来管理内存。然而，这种方式不能与&lt;/p&gt;
+&lt;p&gt;OS的内存管理以前很好地工作。反复地malloc/free造成了内存碎片，OS最终花费大量的时间去查找连续的内存块来满足malloc的请求，而不是运行memcached进程。slab分配器就是&lt;/p&gt;
+&lt;p&gt;为了解决这个问题而生的。内存被分配并划分成chunks，一直被重复使用。因为内存被划分成大小不等的slabs，如果item的大小与被选择存放它的slab不是很合适的话，就会浪费一些内存。&lt;/p&gt;
+&lt;p&gt;25、memcached是原子的吗？&lt;/p&gt;
+&lt;p&gt;所有的被发送到memcached的单个命令是完全原子的。如果您针对同一份数据同时发送了一个set命令和一个get命令，它们不会影响对方。它们将被串行化、先后执行。即使在多线程模&lt;/p&gt;
+&lt;p&gt;式，所有的命令都是原子的。然是，命令序列不是原子的。如果首先通过get命令获取了一个item，修改了它，然后再把它set回memcached，系统不保证这个item没有被其他进程&lt;/p&gt;
+&lt;p&gt;（process，未必是操作系统中的进程）操作过。memcached 1.2.5以及更高版本，提供了gets和cas命令，它们可以解决上面的问题。如果使用gets命令查询某个key的item，&lt;/p&gt;
+&lt;p&gt;memcached会返回该item当前值的唯一标识。如果客户端程序覆写了这个item并想把它写回到memcached中，可以通过cas命令把那个唯一标识一起发送给memcached。如果该item&lt;/p&gt;
+&lt;p&gt;存放在memcached中的唯一标识与您提供的一致，写操作将会成功。如果另一个进程在这期间也修改了这个item，那么该item存放在memcached中的唯一标识将会改变，写操作就会&lt;/p&gt;
+&lt;p&gt;失败。&lt;/p&gt;
+&lt;p&gt;性能和客户端库方面的问题&lt;/p&gt;
+&lt;p&gt;26、memcached没有我的database快，为什么？&lt;/p&gt;
+&lt;p&gt;在一对一比较中，memcached可能没有SQL查询快。但是，这不是memcached的设计目标。Memcached的目标是可伸缩性。当连接和请求增加的时候，memcached的性能将比&lt;/p&gt;
+&lt;p&gt;大多数数据库查询好。可以先在高负载的环境（并发的连接和请求）中测试您的代码，然后再决定memcached是否适合您。&lt;/p&gt;
+&lt;p&gt;27、使用不同的客户端库，可以访问到memcached中相同的数据吗？&lt;/p&gt;
+&lt;p&gt;从技术上说，是可以的。但是可能会遇到下面三个问题：&lt;/p&gt;
+&lt;p&gt;1）不同的库采用不同的方式序列化数据。举个例子，perl的Cache::Memcached使用Storable来序列化结构复杂的数据（比如hash references, objects, 等）。其他语言的客户端库很&lt;/p&gt;
+&lt;p&gt;可能不能读取这种格式的数据。如果您要存储复杂的数据并且想被多种客户端库读取，那么您应该以简单的string格式来存储，并且这种格式可以被JSON、XML等外部库解析。&lt;/p&gt;
+&lt;p&gt;2）从某个客户端来的数据被压缩了，从另一个客户端来的却没被压缩。&lt;/p&gt;
+&lt;p&gt;3）各个客户端库可能使用不同的哈希算法（阶段一哈希）。在连接到多个memcached服务器端的情况下，客户端库根据自身实现的哈希算法把key映射到某台memcached上。正是因为&lt;/p&gt;
+&lt;p&gt;不同的客户端库使用不同的哈希算法，所以被Perl客户端库映射到memcached A的key，可能又会被Python客户端库映射到memcached B，等等。Perl客户端库还允许为每台&lt;/p&gt;
+&lt;p&gt;memcached指定不同的权重（weight），这也是导致这个问题的一个因素。&lt;/p&gt;
+&lt;p&gt;28、什么是一致性哈希的客户端？&lt;/p&gt;
+&lt;p&gt;这里有一篇文章很好地解释了它的用处：&lt;a href=&quot;http://www.last.fm/user/RJ/journal/2007/04/10/392555&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.last.fm/user/RJ/journal/2007/04/10/392555&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;客户端可以通过”前缀”来给key设置一个域（命名空间）。例如，在一个共享主机的环境中，可以将客户姓名作为”前缀”，为key创建一个特定的域。在存储数据的时候，”前缀”可以用在&lt;/p&gt;
+&lt;p&gt;key上，但是不应该参与哈希计算。目前，memcached自己还没有实现针对复杂结构数据的序列化方法，JSON则是一种被广泛使用的对象序列化格式。&lt;/p&gt;
+&lt;p&gt;哈希 / 键分布&lt;/p&gt;
+&lt;p&gt;29、什么时候失效的数据项会从缓存中删除？&lt;/p&gt;
+&lt;p&gt;memcached 使用懒失效，当客户端请求数据项时， memcached 在返回数据前会检查失效时间来确定数据项是否已经失效。同样地，当添加一个新的数据项时，如果缓存已经满了， memcached 就会先替换失效的数据项，然后才是缓存中最少使用的数据项。&lt;/p&gt;
+&lt;p&gt;命名空间&lt;/p&gt;
+&lt;p&gt;30、memcached 不支持命名空间。以下提供几种模仿命名空间的方式：&lt;/p&gt;
+&lt;p&gt;1）用键的前缀模仿命名空间：在真实的键之前加入有意义的前缀。&lt;/p&gt;
+&lt;p&gt;2）用命名空间删除数据项：尽管 memcached 不支持使用任何类型的通配符或命名空间来完成删除操作，但是可以采用一些技巧来替代：&lt;/p&gt;
+&lt;p&gt;在 PHP 中使用一个叫 foo 的命名空间：$ns_key = $memcache-&amp;gt;get(“foo_namespace_key”);&lt;/p&gt;
+&lt;p&gt;// if not set, initialize it&lt;/p&gt;
+&lt;p&gt;if($ns_key=false) $memcache-&amp;gt;set(“foo_namespace_key”, rand(1, 10000));&lt;/p&gt;
+&lt;p&gt;$my&lt;em&gt;key = “foo&lt;/em&gt;“.$ns_key.”_12345”;&lt;/p&gt;
+&lt;p&gt;清除命名空间：$memcache-&amp;gt;increment(“foo_namespace_key”);&lt;/p&gt;
+&lt;p&gt;应用设计&lt;/p&gt;
+&lt;p&gt;31、在设计应用时，可以通过Memcached缓存那些内容？&lt;/p&gt;
+&lt;p&gt;1）缓存简单的查询结果：查询缓存存储了给定查询语句对应的整个结果集，最合适缓存那些经常被用到，但不会改变的 SQL 语句对查询到的结果集，比如载入特定的过滤内容。&lt;/p&gt;
+&lt;p&gt;$key = md5(‘SELECT * FROM rest_of_sql_statement_goes_here’);&lt;/p&gt;
+&lt;p&gt;if ($memcache-&amp;gt;get($key)) {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;` return $memcache-&amp;gt;get($key);`
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}else {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;` // Run the query and transform the result data into your final dataset form`
+
+` $result = $query_results_mangled_into_most_likely_an_array`
+
+ ` $memcache-&amp;gt;set($key, $result, TRUE, 86400); // Store the result of the query for a day`
+
+` return $result;`
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;记住，如果查询语句对应的结果集改变，该结果集不会展现出来。这种方法不总是有用，但它确实让工作变得比较快。&lt;/p&gt;
+&lt;p&gt;2）缓存简单的基于行的查询结果：基于行的缓存会检查缓存数据key的列表，那些在缓存中的行可以直接被取出，不在缓存中的行将会从数据库中取出并以唯一的键为标识缓存起来，最&lt;/p&gt;
+&lt;p&gt;后加入到最终的数据集中返回。随着时间的推移，大多数数据都会被缓存，这也意味着相比与数据库，查询语句会更多地从 memcached 中得到数据行。如果数据是相当静态的，我们可&lt;/p&gt;
+&lt;p&gt;以设置一个较长的缓存时间。&lt;/p&gt;
+&lt;p&gt;基于行的缓存模式对下面这种搜索情况特别有用：数据集本身很大或是数据集是从多张表中得到，而数据集取决于查询的输入参数但是查询的结果集之间的有重复部分。&lt;/p&gt;
+&lt;p&gt;比如，如果你有用户 A ， B ， C ， D ， E 的数据集。你去点击一张显示用户 A ， B ， E 信息的页面。首先， memcached 得到 3 个不同的键，每个对应一个用户去缓存中查找，全部未&lt;/p&gt;
+&lt;p&gt;命中。然后就到数据库中用 SQL 查询得到 3 个用户的数据行，并缓存他们。&lt;/p&gt;
+&lt;p&gt;现在，你又去点击另一张显示显示 C ， D ， E 信息的页面。当你去查找 memcached 时， C ， D 的数据并没有被命中，但我们命中了 E 的数据。然后从数据库得到 C ， D 的行数据，缓&lt;/p&gt;
+&lt;p&gt;存在 memcached 中。至此以后，无论这些用户信息怎样地排列组合，任何关于 A ， B ， C ， D ， E 信息的页面都可以从 memcached 得到数据了。&lt;/p&gt;
+&lt;p&gt;3）缓存的不只是 SQL 数据，可以缓存最终完成的部分显示页面，以节省CPU计算时间&lt;/p&gt;
+&lt;p&gt;例如正在制作一张显示用户信息的页面，你可能得到一段关于用户的信息（姓名，生日，家庭住址，简介），然后你可能会将 XML 格式的简介信息转化为 HTML 格式或做其他的一些工&lt;/p&gt;
+&lt;p&gt;作。相比单独存储这些属性，你可能更愿意存储经过渲染的数据块。那时你就可以简单地取出被预处理后的 HTML 直接填充在页面中，这样节省了宝贵的 CPU 时间。&lt;/p&gt;
+&lt;p&gt;32、使用分层的缓存&lt;/p&gt;
+&lt;p&gt;memcached 可以高速处理大量的缓存数据，但是还是要根据系统的情况考虑维护多层的缓存结构。例如除了memcached缓存之外，还可以通过本地缓存（如ehcache、oscache等）建&lt;/p&gt;
+&lt;p&gt;立起多级缓存。例如，可以采用本地缓存缓存一些基本数据，例如少量但访问频繁的数据（如产品分类，连接信息，服务器状态变量，应用配置变量等），缓存这些数据并让他们尽可能的&lt;/p&gt;
+&lt;p&gt;接近处理器是有意义的 , 这样可以帮助减少生成页面的时间，并且在 memcached 失效的情况下可以增加可靠性。&lt;/p&gt;
+&lt;p&gt;33、当数据更新时需要更新缓存&lt;/p&gt;
+&lt;p&gt;用户编辑了自己的信息，当保存信息到数据库时，需要更新缓存中的数据或是简单地删除老的数据。如果马上更新数据，要防止从数据库读取那些刚刚更新过的数据。当用户习惯性地重新&lt;/p&gt;
+&lt;p&gt;载入自己的用户信息来确认是否修改成功时，数据将从缓存中直接取出，这时他们获得了最新的数据。&lt;/p&gt;
+&lt;p&gt;34、模拟带锁的添加命令&lt;/p&gt;
+&lt;p&gt;如果你实在需要锁，你可以通过“添加”命令模仿锁的功能。尽管在未命中的情况下它不是那么有用，但如果你用它缓存平常的数据（应用服务器池的元数据）那还是有用的。&lt;/p&gt;
+&lt;p&gt;比如，你要更新键 A 。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;添加一个 “lock:A” 的键，这个键有一个持续几秒的过期时间（足够长以使你能完成计算和更新，也不要很长，因为如果锁进程挂了，这个键不会立即释放）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果添加操作成功了，你就拥有了锁：从缓存获取键 A 的数据；利用客户端程序更改数据；更新缓存键 A 的数据；删除键 “lock:A” 。如果你不需要立即再次更新，就让它存活直到失效。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果添加操作失败，说明有人获取了锁。这时让应用做些合适的事，比如返回老数据，等待后重试，或是其他的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以上这些操作类似 MySQL 将 GET_LOCK 的 timeout 值设置成 0 。没有办法在 memcached 中通过互斥锁模拟 GET_LOCK() 的 timeout 操作。&lt;/p&gt;
+&lt;p&gt;35、预热你的缓存&lt;/p&gt;
+&lt;p&gt;如果你有一个很高访问率的站点，并且你正想加入故障恢复功能或是其他全新的功能，你最终可能会碰到空缓存的问题。一开始缓存是空的，然后一大群人点击你的站点，在填充缓存的过&lt;/p&gt;
+&lt;p&gt;程中，你的数据库可能会承受不住压力。为了解决这一问题，你可以试试任何可行的方法来 “ 温暖 “ 你的Memcached。方法：可以写一些脚本来缓存通用的页面；也可以写一个命令行工&lt;/p&gt;
+&lt;p&gt;具来填充缓存。你可以在高峰时刻在缓存里填充一些内容。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、memcached的基本设置&lt;br&gt; 1）启动Memcache的服务器端 &lt;/p&gt;
+&lt;h1 id=&quot;usr-local-bin-memcached-d-m-10-u-root-l-192-168-0-200-p-12000-c-256-P-tmp-memcached-p
+    
+    </summary>
+    
+    
+      <category term="memcache" scheme="http://yoursite.com/tags/memcache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PHP convert string to utf8</title>
+    <link href="http://yoursite.com/2016/03/15/PHP-convert-string-to-utf8/"/>
+    <id>http://yoursite.com/2016/03/15/PHP-convert-string-to-utf8/</id>
+    <published>2016-03-15T08:08:45.000Z</published>
+    <updated>2016-03-15T08:12:34.000Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;public function convertStringToUtf8($string)
+{
+    $string = urldecode($string);
+    $encoding = mb_detect_encoding($string, array(&amp;apos;ASCII&amp;apos;, &amp;apos;UTF-8&amp;apos;, &amp;apos;GB2312&amp;apos;, &amp;apos;GBK&amp;apos;, &amp;apos;BIG5&amp;apos;));
+    $string = mb_convert_encoding($string, &amp;apos;UTF-8&amp;apos;, $encoding);
+    $string = trim(str_replace(&amp;apos;GB2312&amp;apos;, &amp;apos;utf-8&amp;apos;, $string));//换xml类型编码
+    return $string;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;public function convertStringToUtf8($string)
+{
+    $string = urldecode($string);
+    $encoding = mb_detect_encoding($string, arra
+    
+    </summary>
+    
+      <category term="php" scheme="http://yoursite.com/categories/php/"/>
+    
+    
+      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初学Hexo</title>
+    <link href="http://yoursite.com/2016/03/15/hello-world/"/>
+    <id>http://yoursite.com/2016/03/15/hello-world/</id>
+    <published>2016-03-15T07:07:07.000Z</published>
+    <updated>2016-03-15T07:07:07.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql 索引最左原则</title>
+    <link href="http://yoursite.com/2016/03/15/Mysql-%E6%9C%80%E5%B7%A6%E5%8E%9F%E5%88%99/"/>
+    <id>http://yoursite.com/2016/03/15/Mysql-最左原则/</id>
+    <published>2016-03-15T03:08:37.000Z</published>
+    <updated>2016-03-15T10:23:29.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;能用到索引或者索引部分&quot;&gt;&lt;a href=&quot;#能用到索引或者索引部分&quot; class=&quot;headerlink&quot; title=&quot;能用到索引或者索引部分&quot;&gt;&lt;/a&gt;能用到索引或者索引部分&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;联合索引全字段匹配；如: where a=1 and b=2&lt;/li&gt;
+&lt;li&gt;联合索引左边字段匹配；如: where a=1（索引是a，b）&lt;/li&gt;
+&lt;li&gt;联合索引左边字段范围查询, 范围查询截断了索引的使用，&lt;ul&gt;
+&lt;li&gt;如: where a &amp;lt; 100 and b=1（索引是a，b），只用到索引的a部分，b部分不起作用；&lt;ul&gt;
+&lt;li&gt;如: where a = 100 and b&amp;gt;1（索引是a，b），用到了整个索引&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;索引的模糊查询，可以用到索引的部分；如 where a like ‘abc%’&lt;/li&gt;
+&lt;li&gt;IN 一般情况下是算作精确查询里。&lt;/li&gt;
+&lt;li&gt;联合索引的使用场景还有 where + order by。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;能用到索引或者索引部分&quot;&gt;&lt;a href=&quot;#能用到索引或者索引部分&quot; class=&quot;headerlink&quot; title=&quot;能用到索引或者索引部分&quot;&gt;&lt;/a&gt;能用到索引或者索引部分&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;联合索引全字段匹配；如: where a=1 and b
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test.md</title>
+    <link href="http://yoursite.com/2016/03/14/test-md/"/>
+    <id>http://yoursite.com/2016/03/14/test-md/</id>
+    <published>2016-03-14T10:36:28.000Z</published>
+    <updated>2016-03-15T04:11:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;测试一下&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;测试一下&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="haha" scheme="http://yoursite.com/tags/haha/"/>
+    
+  </entry>
+  
+</feed>
